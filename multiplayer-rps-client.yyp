@@ -1,6 +1,19 @@
 {
   "resources": [
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"sPlayerFighting","path":"sprites/sPlayerFighting/sPlayerFighting.yy",},"order":0,},
+    {"id":{"name":"oMessage","path":"objects/oMessage/oMessage.yy",},"order":4,},
+    {"id":{"name":"fText","path":"fonts/fText/fText.yy",},"order":0,},
+    {"id":{"name":"rFight","path":"rooms/rFight/rFight.yy",},"order":2,},
+    {"id":{"name":"oButton","path":"objects/oButton/oButton.yy",},"order":3,},
+    {"id":{"name":"oTextbox","path":"objects/oTextbox/oTextbox.yy",},"order":1,},
+    {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":0,},
+    {"id":{"name":"sTextbox","path":"sprites/sTextbox/sTextbox.yy",},"order":2,},
+    {"id":{"name":"sButton","path":"sprites/sButton/sButton.yy",},"order":4,},
+    {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":1,},
+    {"id":{"name":"oController","path":"objects/oController/oController.yy",},"order":2,},
+    {"id":{"name":"sTextboxFocused","path":"sprites/sTextboxFocused/sTextboxFocused.yy",},"order":3,},
+    {"id":{"name":"rGame","path":"rooms/rGame/rGame.yy",},"order":1,},
+    {"id":{"name":"rConnect","path":"rooms/rConnect/rConnect.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
@@ -16,7 +29,9 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rConnect","path":"rooms/rConnect/rConnect.yy",},},
+    {"roomId":{"name":"rGame","path":"rooms/rGame/rGame.yy",},},
+    {"roomId":{"name":"rFight","path":"rooms/rFight/rFight.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

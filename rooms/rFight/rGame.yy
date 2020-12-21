@@ -24,8 +24,8 @@
   "sequenceId": null,
   "roomSettings": {
     "inheritRoomSettings": false,
-    "Width": 1024,
-    "Height": 768,
+    "Width": 800,
+    "Height": 600,
     "persistent": false,
   },
   "viewSettings": {
@@ -46,7 +46,7 @@
     "path": "folders/Rooms.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Room1",
+  "name": "rGame",
   "tags": [],
   "resourceType": "GMRoom",
 }

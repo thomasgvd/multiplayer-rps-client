@@ -1,6 +1,16 @@
 enum TEXTBOX_TYPE { USERNAME, PASSWORD }
 enum PLAYER { A, B }
 
+// Networking
+enum PACKET_TYPE { CONNECTION, MOVEMENT, DISCONNECT }
+
+network_set_config(network_config_connect_timeout, 4000);
+network_set_config(network_config_use_non_blocking_socket, 1);
+socket = network_create_socket(network_socket_tcp);
+buffer = buffer_create(256, buffer_grow, 1);
+connected = false;
+waitingForServerResponse = false;
+
 // Connection
 textboxFocused = undefined;
 usernameTextbox = undefined;
@@ -20,15 +30,74 @@ fightOver = true;
 winner = undefined;
 fightManaged = false;
 
+function manage_server_response(_load) {
+	var _buffer = _load[? "buffer"];
+	buffer_seek(_buffer, buffer_seek_start, 0);
+	
+	var _rawData = buffer_read(_buffer, buffer_string);
+	var _packetData = string_to_array(_rawData);
+	show_debug_message("received packet : " + string(_rawData) + " - converted into " + string(_packetData));
+	
+	var _packetType = _packetData[0];
+	
+	switch (_packetType) {
+		case PACKET_TYPE.CONNECTION:
+			var _success = _packetData[1];
+			
+			if (_success) room_goto(rGame);
+			else display_error_message();
+			
+			break;
+		default: break;
+	}
+	
+	waitingForServerResponse = false;
+}
+
+function string_to_array(_string) {
+	var _list = ds_list_create();
+	var _array = [];
+	var _el = "";
+	
+	for (var i = 1; i <= string_length(_string); i++) {
+		var _char = string_char_at(_string, i);
+		
+		if (_char != "|") {
+			_el += _char;
+		} 
+		
+		if (i == string_length(_string) || _char == "|") {
+			ds_list_add(_list, _el);
+			_el = "";
+		}
+	}
+	
+	
+	for (var i = 0; i < ds_list_size(_list); i++) {
+		_array[i] = ds_list_find_value(_list, i);
+	}
+	
+	ds_list_destroy(_list);
+	
+	return _array;
+}
+
+function send_packet() {
+	if (connected) {
+		network_send_raw(socket, buffer, buffer_tell(buffer));
+		show_debug_message("send packet")
+	}
+}
+
 function connect_room_management() {
 	// Initialize textbox ids
 	if (usernameTextbox == undefined || passwordTextbox == undefined) {
 		if (instance_exists(oTextbox)) {
 			for (var i = 0; i < instance_number(oTextbox); i++) {
-				var textbox = instance_find(oTextbox, i);
+				var _textbox = instance_find(oTextbox, i);
 			
-				if (instance_exists(textbox) && textbox.myType = TEXTBOX_TYPE.USERNAME) usernameTextbox = textbox;
-				if (instance_exists(textbox) && textbox.myType = TEXTBOX_TYPE.PASSWORD) passwordTextbox  = textbox;
+				if (instance_exists(_textbox) && _textbox.myType = TEXTBOX_TYPE.USERNAME) usernameTextbox = _textbox;
+				if (instance_exists(_textbox) && _textbox.myType = TEXTBOX_TYPE.PASSWORD) passwordTextbox  = _textbox;
 			}
 		}
 	} else if (textboxFocused == undefined) {
@@ -88,12 +157,14 @@ function change_focus(_type) {
 }
 
 function check_credentials() {
-	// Send check_credentialsion request with username / password
-	
-	show_debug_message("username : " + string(username));
-	show_debug_message("password : " + string(password));
-	
-	return username == "user1" && password == "pass1";
+	if (connected) {
+		// Connection packet
+		buffer_seek(buffer, buffer_seek_start, 0);
+		buffer_write(buffer, buffer_string, string(PACKET_TYPE.CONNECTION) + "|" + string(username) + "|" + string(password) + "\n");
+		send_packet();
+	} else {
+		network_connect_raw(socket, "127.0.0.1", 5555);
+	}
 }
 
 function display_error_message() {
@@ -113,14 +184,9 @@ function button_effect() {
 }
 
 function connect() {
-	
+	waitingForServerResponse = true;
 	button_effect();
-	
-	if (oController.check_credentials()) {
-		room_goto(rGame);
-	} else {
-		oController.display_error_message();
-	}
+	check_credentials();
 }
 
 function set_spawns() {

@@ -9,7 +9,8 @@ network_set_config(network_config_use_non_blocking_socket, 1);
 socket = network_create_socket(network_socket_tcp);
 buffer = buffer_create(256, buffer_grow, 1);
 connected = false;
-waitingForServerResponse = false;
+waitingForServerResponse = 0;
+WAIT_FOR_RESPONSE_DURATION = 120;
 
 // Connection
 textboxFocused = undefined;
@@ -51,7 +52,7 @@ function manage_server_response(_load) {
 		default: break;
 	}
 	
-	waitingForServerResponse = false;
+	waitingForServerResponse = 0;
 }
 
 function string_to_array(_string) {
@@ -184,7 +185,7 @@ function button_effect() {
 }
 
 function connect() {
-	waitingForServerResponse = true;
+	waitingForServerResponse = WAIT_FOR_RESPONSE_DURATION;
 	button_effect();
 	check_credentials();
 }

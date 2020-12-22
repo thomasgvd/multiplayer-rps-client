@@ -8,3 +8,5 @@ if (room == rConnect) {
 } else if (room == rFight) {
 	fight_room_management();
 }
+
+waitingForServerResponse = max(0, waitingForServerResponse - 1);

@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"57a553e8-8959-4116-a24b-50821eaa4c5d","path":"sprites/sButton/sButton.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"57a553e8-8959-4116-a24b-50821eaa4c5d","path":"sprites/sButton/sButton.yy",},"LayerId":{"name":"9c12f18e-8e16-4741-b073-927b9370dfbe","path":"sprites/sButton/sButton.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sButton","path":"sprites/sButton/sButton.yy",},"resourceVersion":"1.0","name":"57a553e8-8959-4116-a24b-50821eaa4c5d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"3edde471-5a39-4215-80b2-515e683d4f96","path":"sprites/sButtonPressed/sButtonPressed.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"3edde471-5a39-4215-80b2-515e683d4f96","path":"sprites/sButtonPressed/sButtonPressed.yy",},"LayerId":{"name":"26ee642b-13bf-4985-a40f-d70b7c5246bc","path":"sprites/sButtonPressed/sButtonPressed.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sButtonPressed","path":"sprites/sButtonPressed/sButtonPressed.yy",},"resourceVersion":"1.0","name":"3edde471-5a39-4215-80b2-515e683d4f96","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sButton","path":"sprites/sButton/sButton.yy",},
+    "spriteId": {"name":"sButtonPressed","path":"sprites/sButtonPressed/sButtonPressed.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 15.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"22b08814-da3e-457d-8bef-058514973a01","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"57a553e8-8959-4116-a24b-50821eaa4c5d","path":"sprites/sButton/sButton.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"681bb444-164e-442d-9b0a-7b4adcfc521d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3edde471-5a39-4215-80b2-515e683d4f96","path":"sprites/sButtonPressed/sButtonPressed.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 37,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sButton","path":"sprites/sButton/sButton.yy",},
+    "parent": {"name":"sButtonPressed","path":"sprites/sButtonPressed/sButtonPressed.yy",},
     "resourceVersion": "1.3",
-    "name": "sButton",
+    "name": "sButtonPressed",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"9c12f18e-8e16-4741-b073-927b9370dfbe","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"26ee642b-13bf-4985-a40f-d70b7c5246bc","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Sprites",
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sButton",
+  "name": "sButtonPressed",
   "tags": [],
   "resourceType": "GMSprite",
 }

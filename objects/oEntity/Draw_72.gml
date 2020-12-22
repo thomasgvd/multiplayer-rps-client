@@ -1,0 +1,1 @@
+if (room == rGame) depth = -bbox_bottom;

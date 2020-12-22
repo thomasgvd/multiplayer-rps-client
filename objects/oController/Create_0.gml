@@ -109,7 +109,19 @@ function display_error_message() {
 	}
 }
 
+function button_effect() {
+	if (instance_exists(oButton)) {
+		with (oButton) { 
+			sprite_index = sButtonPressed;
+			alarm[0] = 7;
+		}
+	}
+}
+
 function connect() {
+	
+	button_effect();
+	
 	if (oController.check_credentials()) {
 		room_goto(rGame);
 	} else {

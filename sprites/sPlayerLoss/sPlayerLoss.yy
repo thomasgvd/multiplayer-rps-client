@@ -55,7 +55,7 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 50,
-    "yorigin": 80,
+    "yorigin": 65,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPlayerLoss","path":"sprites/sPlayerLoss/sPlayerLoss.yy",},

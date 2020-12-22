@@ -10,4 +10,5 @@ if (room == rConnect) {
 	spawned = false;
 	fightOver = true
 	winner = undefined;
+	fightManaged = false;
 }

@@ -8,6 +8,9 @@ if (room == rGame) {
 	var yMove = keyboard_check(ord("S")) - keyboard_check(ord("Z"));
 
 	if (xMove != 0) image_xscale = xMove;
+	
+	if ((bbox_left <= 0 && xMove == -1) || (bbox_right >= room_width && xMove == 1)) xMove = 0;
+	if ((bbox_bottom >= room_height && yMove == 1) || (bbox_top <= 0 && yMove == -1)) yMove = 0;
 
 	x += xMove * SPEED;
 	y += yMove * SPEED;

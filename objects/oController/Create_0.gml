@@ -18,6 +18,7 @@ playerB = undefined;
 spawned = false;
 fightOver = true;
 winner = undefined;
+fightManaged = false;
 
 function connect_room_management() {
 	// Initialize textbox ids
@@ -68,16 +69,9 @@ function fight_room_management() {
 }
 
 function manage_fight() {
-	if (winner == undefined) {
-		winner = choose(PLAYER.A, PLAYER.B);
-		if (winner == PLAYER.A) {
-			playerA.sprite_index = sPlayerWin;
-			playerB.sprite_index = sPlayerLoss;
-		} else if (winner == PLAYER.B) {
-			playerA.sprite_index = sPlayerLoss;
-			playerB.sprite_index = sPlayerWin;
-		}
-		alarm[0] = 180;
+	if (!fightManaged) {
+		fightManaged = true;
+		alarm[0] = 60;
 	}
 }
 

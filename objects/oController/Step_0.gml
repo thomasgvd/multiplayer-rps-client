@@ -1,23 +1,10 @@
 if (room == rConnect) {
-	// Initialize textbox ids
-	if (usernameTextbox == undefined || passwordTextbox == undefined) {
-		if (instance_exists(oTextbox)) {
-			for (var i = 0; i < instance_number(oTextbox); i++) {
-				var textbox = instance_find(oTextbox, i);
-			
-				if (instance_exists(textbox) && textbox.myType = TEXTBOX_TYPE.USERNAME) usernameTextbox = textbox;
-				if (instance_exists(textbox) && textbox.myType = TEXTBOX_TYPE.PASSWORD) passwordTextbox  = textbox;
-			}
-		}
-	} else if (textboxFocused == undefined) {
-		textboxFocused = usernameTextbox;
+	connect_room_management();
+} else if (room == rGame) {
+	if (!spawned) {	
+		with (instance_create_layer(room_width / 2, room_height / 2, "Instances", oPlayer)) {}
+		spawned = true;
 	}
-	
-	if (keyboard_check_pressed(vk_tab)) {
-		if (textboxFocused == usernameTextbox) {
-			change_focus(TEXTBOX_TYPE.PASSWORD);
-		} else {
-			change_focus(TEXTBOX_TYPE.USERNAME);
-		}
-	}
+} else if (room == rFight) {
+	fight_room_management();
 }

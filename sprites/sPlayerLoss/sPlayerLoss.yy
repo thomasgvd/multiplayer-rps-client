@@ -7,10 +7,10 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 24,
-  "bbox_right": 77,
-  "bbox_top": 10,
-  "bbox_bottom": 89,
+  "bbox_left": 9,
+  "bbox_right": 89,
+  "bbox_top": 25,
+  "bbox_bottom": 79,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"1108ca93-d72c-4040-81bb-beb401819036","path":"sprites/sPlayerFighting/sPlayerFighting.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"1108ca93-d72c-4040-81bb-beb401819036","path":"sprites/sPlayerFighting/sPlayerFighting.yy",},"LayerId":{"name":"a817c701-9df1-4435-b6c7-43197909794c","path":"sprites/sPlayerFighting/sPlayerFighting.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sPlayerFighting","path":"sprites/sPlayerFighting/sPlayerFighting.yy",},"resourceVersion":"1.0","name":"1108ca93-d72c-4040-81bb-beb401819036","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"161a09de-fb96-48a1-b8cd-73caa7f5665a","path":"sprites/sPlayerLoss/sPlayerLoss.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"161a09de-fb96-48a1-b8cd-73caa7f5665a","path":"sprites/sPlayerLoss/sPlayerLoss.yy",},"LayerId":{"name":"f14ee708-4a55-4497-ac86-6c60316c8119","path":"sprites/sPlayerLoss/sPlayerLoss.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sPlayerLoss","path":"sprites/sPlayerLoss/sPlayerLoss.yy",},"resourceVersion":"1.0","name":"161a09de-fb96-48a1-b8cd-73caa7f5665a","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sPlayerFighting","path":"sprites/sPlayerFighting/sPlayerFighting.yy",},
+    "spriteId": {"name":"sPlayerLoss","path":"sprites/sPlayerLoss/sPlayerLoss.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 15.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"30268f6a-d2bb-48e9-bac4-8d00cbfe8de0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1108ca93-d72c-4040-81bb-beb401819036","path":"sprites/sPlayerFighting/sPlayerFighting.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b5d64344-8a2b-4979-993f-daea358055f1","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"161a09de-fb96-48a1-b8cd-73caa7f5665a","path":"sprites/sPlayerLoss/sPlayerLoss.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 80,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sPlayerFighting","path":"sprites/sPlayerFighting/sPlayerFighting.yy",},
+    "parent": {"name":"sPlayerLoss","path":"sprites/sPlayerLoss/sPlayerLoss.yy",},
     "resourceVersion": "1.3",
-    "name": "sPlayerFighting",
+    "name": "sPlayerLoss",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a817c701-9df1-4435-b6c7-43197909794c","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f14ee708-4a55-4497-ac86-6c60316c8119","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Sprites",
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sPlayerFighting",
+  "name": "sPlayerLoss",
   "tags": [],
   "resourceType": "GMSprite",
 }

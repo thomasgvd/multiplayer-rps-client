@@ -1,9 +1,11 @@
 {
   "resources": [
+    {"id":{"name":"sPlayerWin","path":"sprites/sPlayerWin/sPlayerWin.yy",},"order":5,},
     {"id":{"name":"sPlayerFighting","path":"sprites/sPlayerFighting/sPlayerFighting.yy",},"order":0,},
     {"id":{"name":"oMessage","path":"objects/oMessage/oMessage.yy",},"order":4,},
     {"id":{"name":"fText","path":"fonts/fText/fText.yy",},"order":0,},
     {"id":{"name":"rFight","path":"rooms/rFight/rFight.yy",},"order":2,},
+    {"id":{"name":"oSpawn","path":"objects/oSpawn/oSpawn.yy",},"order":6,},
     {"id":{"name":"oButton","path":"objects/oButton/oButton.yy",},"order":3,},
     {"id":{"name":"oTextbox","path":"objects/oTextbox/oTextbox.yy",},"order":1,},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":0,},
@@ -13,6 +15,8 @@
     {"id":{"name":"oController","path":"objects/oController/oController.yy",},"order":2,},
     {"id":{"name":"sTextboxFocused","path":"sprites/sTextboxFocused/sTextboxFocused.yy",},"order":3,},
     {"id":{"name":"rGame","path":"rooms/rGame/rGame.yy",},"order":1,},
+    {"id":{"name":"sPlayerLoss","path":"sprites/sPlayerLoss/sPlayerLoss.yy",},"order":6,},
+    {"id":{"name":"oDummy","path":"objects/oDummy/oDummy.yy",},"order":5,},
     {"id":{"name":"rConnect","path":"rooms/rConnect/rConnect.yy",},"order":0,},
   ],
   "Options": [

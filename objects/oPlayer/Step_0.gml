@@ -4,24 +4,22 @@ timer++;
 
 // Able to move while in game room
 if (room == rGame) {
-	var _xMove = keyboard_check(ord("D")) - keyboard_check(ord("Q"));
-	var _yMove = keyboard_check(ord("S")) - keyboard_check(ord("Z"));
+	if (username == oController.username) {
+		var _xMove = keyboard_check(ord("D")) - keyboard_check(ord("Q"));
+		var _yMove = keyboard_check(ord("S")) - keyboard_check(ord("Z"));
 
-	if (_xMove != 0) image_xscale = _xMove;
+		if ((bbox_left <= 0 && _xMove == -1) || (bbox_right >= room_width && _xMove == 1)) _xMove = 0;
+		if ((bbox_bottom >= room_height && _yMove == 1) || (bbox_top <= 0 && _yMove == -1)) _yMove = 0;
 	
-	if ((bbox_left <= 0 && _xMove == -1) || (bbox_right >= room_width && _xMove == 1)) _xMove = 0;
-	if ((bbox_bottom >= room_height && _yMove == 1) || (bbox_top <= 0 && _yMove == -1)) _yMove = 0;
+		if (x < 0 || x > room_width || y < 0 || y > room_height) {
+			x = room_width / 2;
+			y = room_height / 2;
+		}
 	
-	if (x < 0 || x > room_width || y < 0 || y > room_height) {
-		x = room_width / 2;
-		y = room_height / 2;
-	}
-	
-	if (_xMove != 0 || _yMove != 0) {
-		with (oController) {
-			buffer_seek(buffer, buffer_seek_start, 0);
-			buffer_write(buffer, buffer_string, string(PACKET_TYPE.MOVEMENT) + "|" + string(_xMove) + "|" + string(_yMove) + "\n");
-			send_packet();
+		if (_xMove != 0 || _yMove != 0) {
+			with (oController) {
+				send_movement_packet(_xMove, _yMove);
+			}
 		}
 	}
 // Choosing attacks while in fighting room

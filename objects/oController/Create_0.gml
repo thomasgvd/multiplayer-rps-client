@@ -11,6 +11,7 @@ buffer = buffer_create(256, buffer_grow, 1);
 connected = false;
 waitingForServerResponse = 0;
 WAIT_FOR_RESPONSE_DURATION = 120;
+players = ds_list_create();
 
 // Connection
 textboxFocused = undefined;
@@ -50,9 +51,21 @@ function manage_server_response(_load) {
 			
 			break;
 		case PACKET_TYPE.MOVEMENT:
-			if (room == rGame && instance_exists(oPlayer)) {
-				oPlayer.x = _packetData[1];
-				oPlayer.y = _packetData[2];
+			if (room == rGame) {
+				var _username = _packetData[1];
+				var _x = _packetData[2];
+				var _y = _packetData[3];
+				var _player = get_player(_username);
+				
+				if (_player != -1 && instance_exists(_player)) {
+					if (_player.x != _x) _player.image_xscale = sign(_x - _player.x);
+					_player.x = _x;
+					_player.y = _y;
+				} else {
+					var _newPlayer = instance_create_layer(_x, _y, "Instances", oPlayer);
+					_newPlayer.username = _username;
+					ds_list_add(players, _newPlayer);
+				}
 			}
 			
 			break;
@@ -60,6 +73,17 @@ function manage_server_response(_load) {
 	}
 	
 	waitingForServerResponse = 0;
+}
+
+function get_player(_username) {
+	var _player = -1;
+	for (var i = 0; i < ds_list_size(players); i++) {
+		var _curPlayer = ds_list_find_value(players, i);
+		if (instance_exists(_curPlayer) && _curPlayer.username == _username) {
+			_player = _curPlayer;
+		}
+	}
+	return _player;
 }
 
 function string_to_array(_string) {
@@ -88,6 +112,12 @@ function string_to_array(_string) {
 	ds_list_destroy(_list);
 	
 	return _array;
+}
+
+function send_movement_packet(_xMove, _yMove) {
+	buffer_seek(buffer, buffer_seek_start, 0);
+	buffer_write(buffer, buffer_string, string(PACKET_TYPE.MOVEMENT) + "|" + string(username) + "|" + string(_xMove) + "|" + string(_yMove) + "\n");
+	send_packet();
 }
 
 function send_packet() {

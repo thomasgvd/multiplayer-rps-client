@@ -49,6 +49,13 @@ function manage_server_response(_load) {
 			else display_error_message();
 			
 			break;
+		case PACKET_TYPE.MOVEMENT:
+			if (room == rGame && instance_exists(oPlayer)) {
+				oPlayer.x = _packetData[1];
+				oPlayer.y = _packetData[2];
+			}
+			
+			break;
 		default: break;
 	}
 	

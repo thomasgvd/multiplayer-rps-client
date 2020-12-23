@@ -1,5 +1,3 @@
-SPEED = 5;
-
 // Sprite animation
 amplitude = 0.1;
 frequency = 0.1;

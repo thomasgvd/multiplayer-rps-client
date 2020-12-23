@@ -16,9 +16,14 @@ if (room == rGame) {
 		x = room_width / 2;
 		y = room_height / 2;
 	}
-
-	x += _xMove * SPEED;
-	y += _yMove * SPEED;
+	
+	if (_xMove != 0 || _yMove != 0) {
+		with (oController) {
+			buffer_seek(buffer, buffer_seek_start, 0);
+			buffer_write(buffer, buffer_string, string(PACKET_TYPE.MOVEMENT) + "|" + string(_xMove) + "|" + string(_yMove) + "\n");
+			send_packet();
+		}
+	}
 // Choosing attacks while in fighting room
 } else if (room == rFight) {
 }

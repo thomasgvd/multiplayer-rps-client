@@ -44,10 +44,15 @@ function manage_server_response(_load) {
 	
 	switch (_packetType) {
 		case PACKET_TYPE.CONNECTION:
-			var _success = _packetData[1];
+			var _username = _packetData[1];
+			var _success = _packetData[2];
+			var _x = _packetData[3];
+			var _y = _packetData[4];
 			
-			if (_success) room_goto(rGame);
-			else display_error_message();
+			if (_username == username && room == rConnect) {
+				if (_success) room_goto(rGame);
+				else display_error_message();
+			}
 			
 			break;
 		case PACKET_TYPE.MOVEMENT:

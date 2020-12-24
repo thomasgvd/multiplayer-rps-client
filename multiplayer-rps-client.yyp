@@ -24,7 +24,6 @@
     {"id":{"name":"rGame","path":"rooms/rGame/rGame.yy",},"order":1,},
     {"id":{"name":"fBigText","path":"fonts/fBigText/fBigText.yy",},"order":1,},
     {"id":{"name":"sPlayerLoss","path":"sprites/sPlayerLoss/sPlayerLoss.yy",},"order":6,},
-    {"id":{"name":"oDummy","path":"objects/oDummy/oDummy.yy",},"order":5,},
     {"id":{"name":"rConnect","path":"rooms/rConnect/rConnect.yy",},"order":0,},
   ],
   "Options": [

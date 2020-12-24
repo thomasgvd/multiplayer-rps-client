@@ -22,6 +22,6 @@ if (room == rGame) {
 			}
 		}
 	}
-// Choosing attacks while in fighting room
-} else if (room == rFight) {
-}
+} 
+//else if (room == rFight) {
+//}
